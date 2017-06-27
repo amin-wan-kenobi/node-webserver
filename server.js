@@ -6,6 +6,8 @@ const hbs = require('hbs');
 const os = require('os');
 const fs = require('fs');
 
+const port = proce.env.PORT || 3000;
+
 var app = express();
 
 hbs.registerPartials(`${__dirname}/views/partials`);
@@ -59,4 +61,4 @@ app.get('/bad', (req, res) => {
 });
 
 //We are done with the get and now we have to make the app listen
-app.listen(3001, () => console.log('Server is up on port 3001'));
+app.listen(port, () => console.log('Server is up on port 3001'));
