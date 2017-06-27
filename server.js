@@ -54,6 +54,18 @@ app.get('/about', (req, res) => {
     });
 });
 
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        pageTitle: 'Project List Page',
+        projectList: ['Node.Js', 'React.Js', 'Vue.js'],
+        userInfo: {
+            name: 'Amin',
+            age: 36,
+            hobbies: ['coding', 'swimming', 'movies']
+        }
+    });
+});
+
 app.get('/bad', (req, res) => {
     res.send({
         errorMessage: 'unable to fulfill the request'
