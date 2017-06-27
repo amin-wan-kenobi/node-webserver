@@ -6,7 +6,7 @@ const hbs = require('hbs');
 const os = require('os');
 const fs = require('fs');
 
-const port = proce.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
 var app = express();
 
@@ -27,7 +27,7 @@ app.use((req, res, next) => {
     // setTimeout(() => {console.log('OK NOW.'); next();}, 5000);
     var now = new Date().toString();
     var log = `${now}:${req.method}:${req.url}`;
-    fs.appendFileSync('serverlog', `${log}\n`);
+    fs.appendFileSync('server.log', `${log}\n`);
     next();
 });
 
