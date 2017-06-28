@@ -35,6 +35,8 @@ app.use((req, res, next) => {
 //     res.render('maintenance.hbs');
 // })
 
+//app.use('/static', express.static(`${__dirname}/public`));
+//above means that all the public can be accessed by /static/rest of the files
 app.use(express.static(`${__dirname}/public`));
 
 
@@ -46,7 +48,6 @@ app.get('/', (req, res) => {
         welcomeMessage: `Welcome to the Home Page of this website ${os.userInfo().username}`
     })
 });
-
 
 app.get('/about', (req, res) => {
     res.render('about.hbs', {
@@ -70,6 +71,20 @@ app.get('/bad', (req, res) => {
     res.send({
         errorMessage: 'unable to fulfill the request'
     })
+});
+
+app.get('/users/:userId', (req, res, next) => {
+    var {userId} = req.params;
+    if(userId === '0'){
+        next('route');
+    }else{
+        res.send(userId);
+    }
+});
+
+app.get('/users/:userId', (req, res, next) => {
+    var {userId} = req.params;
+    res.send(userId);
 });
 
 //We are done with the get and now we have to make the app listen
