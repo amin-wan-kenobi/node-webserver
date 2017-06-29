@@ -21,7 +21,6 @@ hbs.registerHelper('screamIt', (text) => {
 
 app.set('view engine', 'hbs');
 
-
 app.use((req, res, next) => {
     // console.log('requests received ....');
     // setTimeout(() => {console.log('OK NOW.'); next();}, 5000);
@@ -74,18 +73,23 @@ app.get('/bad', (req, res) => {
 });
 
 app.get('/users/:userId', (req, res, next) => {
-    var {userId} = req.params;
-    if(userId === '0'){
+    var {
+        userId
+    } = req.params;
+    if (userId === '0') {
         next('route');
-    }else{
+    } else {
         res.send(userId);
     }
 });
 
 app.get('/users/:userId', (req, res, next) => {
-    var {userId} = req.params;
+    var {
+        userId
+    } = req.params;
     res.send(userId);
 });
+
 
 //We are done with the get and now we have to make the app listen
 app.listen(port, () => console.log(`Server is up on port ${port}`));

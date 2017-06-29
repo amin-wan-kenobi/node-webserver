@@ -10,7 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cookie-parser": "^1.4.3",
     "express": "^4.15.3",
-    "hbs": "^4.0.1"
+    "hbs": "^4.0.1",
+    "mysql": "^2.13.0"
   }
 }
