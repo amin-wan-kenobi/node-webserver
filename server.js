@@ -10,6 +10,10 @@ const port = process.env.PORT || 3000;
 
 var app = express();
 
+app.locals.title='Test Server App';
+app.locals.email='test@test.com';
+
+
 hbs.registerPartials(`${__dirname}/views/partials`);
 //helper takes two arguments: name of the helper and function to run
 hbs.registerHelper('getCurrentYear', () => {
@@ -37,7 +41,6 @@ app.use((req, res, next) => {
 //app.use('/static', express.static(`${__dirname}/public`));
 //above means that all the public can be accessed by /static/rest of the files
 app.use(express.static(`${__dirname}/public`));
-
 
 //setup a handler for get request
 //argument 1 is the root of the app and second one is the function of what to do
